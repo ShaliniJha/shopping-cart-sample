@@ -1,4 +1,4 @@
-[{
+{"gwData":[{
   "name": "iPhone 5s",
   "brand": "Apple",
   "imageUrl": "http://lorempixel.com/200/400/technics/",
@@ -41,3 +41,4 @@
   "discountPrice": "$75.99",
   "description": "awesomatic of the aromalematic"
 }]
+}

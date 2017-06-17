@@ -25,8 +25,9 @@ class App extends Component {
   	render() {
 	    return (
 	      <div>
+					
 	        <Header cartitem= {this.state.cartItem.length} />
-	        <GridWall product = {CartData} onAddToCart={this.handleAddToCart}/>
+	        <GridWall product = {this.props.gwData} onAddToCart={this.handleAddToCart}/>
 	      </div>
 	    );
 	}

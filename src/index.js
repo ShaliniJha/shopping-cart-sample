@@ -26,9 +26,17 @@ const cartCount = (state = 0,action) => {
     }
 }
 
-const appData =combineReducers({
+const cartData = (state = [], action) => {
+    switch (action.type) {
+        default:
+            return state;
+    }
+}
+
+const appData = combineReducers({
     gwData,
-    cartCount
+    cartCount,
+    cartData
 
 })
 

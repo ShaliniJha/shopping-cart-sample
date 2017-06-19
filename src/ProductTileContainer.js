@@ -6,6 +6,7 @@ import {
     increaseCartCount,
     decreaseCartCount
   } from './actions'
+
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     handleAddToCart: (item) => {
@@ -14,4 +15,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-export default connect(null,mapDispatchToProps)(ProductTile)
+export default connect(null, mapDispatchToProps)(ProductTile)

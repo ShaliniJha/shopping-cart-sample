@@ -53,6 +53,7 @@ const cartData = (state = [], action) => {
         case REMOVE_ITEM_FROM_CART:
             cartList = store.getState().cartData;
             cartList.splice(action.index, 1);
+            console.log(cartList)
             return cartList;
         case REMOVE_ALL_ITEMS:
             return [];

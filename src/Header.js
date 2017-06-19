@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {Link} from 'react-router-dom';
 import './Header.css';
 
 class Header extends Component {
@@ -10,16 +10,16 @@ class Header extends Component {
         <div className="App-header"> 
             <ul className="header-bar">
               <li className="header-item">
-                <a className="header-link" href="#">Home</a>
+                <Link to="/gridwall" className="header-link">Home</Link>
               </li>
               <li className="header-item">
-                <a className="header-link" href="#">Link</a>
+                <Link to="/gridwall" className="header-link">Link</Link>
               </li>
               <li className="header-item">
-                <a className="header-link disabled" href="#">Disabled</a>
+                <Link to="/gridwall" className="header-link disabled">Disabled</Link>
               </li>
               <li className=" cart-info">
-                <a className="header-link" href="#">{this.props.cartitem} items in cart</a>
+                <Link className="header-link" to={`/cart`}>{this.props.cartitem} items in cart</Link>
               </li>
             </ul>
         </div>

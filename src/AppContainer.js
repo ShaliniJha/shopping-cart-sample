@@ -3,7 +3,8 @@ import App from "./App";
 
 const mapStateToProps = (state) => {
     return {
-    gwData:state.gwData
+        gwData:state.gwData,
+        cartCount : state.cartCount
     }
 }
 

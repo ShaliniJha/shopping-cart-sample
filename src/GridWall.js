@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ProductTile from './ProductTile'
 import './GridWall.css';
+import ProductTileContainer from './ProductTileContainer';
 
 class GridWall extends Component {
 
@@ -10,7 +11,7 @@ class GridWall extends Component {
 	render() {
 		let productTile = [];
 		this.props.product.forEach(function(obj, index) {
-			let product = <ProductTile item={obj}  key={index} handleAddToCart={this.props.onAddToCart}/>
+			let product = <ProductTileContainer item={obj}  key={index}/>
 			productTile.push(product);
 		}.bind(this));
 		return (

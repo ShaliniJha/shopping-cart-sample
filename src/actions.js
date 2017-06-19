@@ -13,6 +13,6 @@
     return {type: ADD_ITEM_TO_CART, item};
   }
 
-  export const removeItemFromCart = (item) => {
-      return {type: REMOVE_ITEM_FROM_CART, item};
+  export const removeItemFromCart = (itemName) => {
+      return {type: REMOVE_ITEM_FROM_CART, name:itemName};
   }

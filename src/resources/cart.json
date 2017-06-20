@@ -1,10 +1,12 @@
 {"gwData":[{
+  "id": "1",
   "name": "iPhone 5s",
   "brand": "Apple",
   "imageUrl": "http://lorempixel.com/200/400/technics/",
   "price": "$150.00",
   "discountPrice": "$75.99",
-  "description": "awesomatic of the aromalematic"
+  "description": "awesomatic of the aromalematic",
+  "reviewers": ["1", "2"]
 }, {
   "name": "iPhone 5",
   "brand": "Apple",

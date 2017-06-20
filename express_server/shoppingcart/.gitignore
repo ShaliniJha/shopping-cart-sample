@@ -2,7 +2,6 @@
 
 # dependencies
 /node_modules
-/express_server/shoppingcart/node_modules
 
 # testing
 /coverage

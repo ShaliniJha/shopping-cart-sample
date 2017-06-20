@@ -13,8 +13,6 @@ import {
     ADD_ITEM_TO_CART,
     REMOVE_ITEM_FROM_CART,
     REMOVE_ALL_ITEMS,
-    INCREASE_CART_COUNT,
-    DECREASE_CART_COUNT,
  } from './actions'
 import './index.css';
 

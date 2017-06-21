@@ -19,7 +19,7 @@ class Header extends Component {
                 <Link to="/gridwall" className="header-link disabled">Disabled</Link>
               </li>
               <li className=" cart-info">
-                <Link className="header-link" to={`/cart`}>{this.props.cartitem} items in cart</Link>
+                <Link className="header-link" to={`/cart`}>{this.props.cartCount} items in cart</Link>
               </li>
             </ul>
         </div>

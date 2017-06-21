@@ -7,7 +7,6 @@ class ProductTile extends Component {
 	}
 
 	render() {
-		console.log(this.props.item)
 		return(
 			<div className="card product-tile">
 				<img className="card-img-top" src={this.props.item.imageUrl} alt={this.props.item.name} />

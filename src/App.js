@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from './Header'
+import HeaderContainer from './HeaderContainer'
 import CartData from './resources/cart.json'
-import GridWall from './GridWall';
+import GridWallContainer from './GridWallContainer';
 
 
 class App extends Component {
@@ -18,8 +18,8 @@ class App extends Component {
 	    return (
 	      <div>
 					
-	        <Header cartitem= {this.props.cartCount} />
-	        <GridWall product = {this.props.gwData}/>
+	        <HeaderContainer/>
+	        <GridWallContainer/>
 	      </div>
 	    );
 	}

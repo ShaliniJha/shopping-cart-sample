@@ -5,7 +5,7 @@ mongoose.connect('mongodb://localhost:27017/shoppingcart');
 
 var Schema = mongoose.Schema;
 
-var productSchema = new Schema({
+var cartSchema = new Schema({
   "name": {type:String, required: true},
   "brand": {type:String, required: true},
   "imageUrl": {type:String, required: true},
@@ -13,15 +13,15 @@ var productSchema = new Schema({
   "discountPrice": String,
   "description": String,
   "reviewers": Array
-}, {collection : 'Products'});
+}, {collection : 'Cart'});
 
-var productData = mongoose.model('Product', productSchema);
+var cartData = mongoose.model('Cart', cartSchema);
 
 /* GET product list. */
 router.get('/', function(req, res, next) {
-    productData.find()
+    cartData.find()
     .then((doc) => {
-        res.json({"gwData": doc})
+        res.json({"cartData": doc})
     })
 });
 
@@ -39,9 +39,20 @@ router.post('/add', function(req, res, next) {
     reviewers:req.body.reviewers
   };
 
-  var data = new productData(item)
+  var data = new cartData(item)
   data.save();
   res.json({Message: "Created successfully!"});
 });
+
+
+/**
+ * delete a product
+ */
+router.post('/delete', function(req, res, next) {
+  var id = req.body.id;
+  cartData.findByIdAndRemove(id).exec()
+  res.json({"Message": "Removed Successfully!"})
+});
+
 
 module.exports = router;

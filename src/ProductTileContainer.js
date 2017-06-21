@@ -1,16 +1,13 @@
 import {connect} from 'react-redux';
 import ProductTile from './ProductTile';
 import {
-    addItemToCart,
-    removeItemFromCart,
-    increaseCartCount,
-    decreaseCartCount
+    addItemToCart
   } from './actions'
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     handleAddToCart: (item) => {
-      dispatch(addItemToCart(item));
+      dispatch(addItemToCart(dispatch, item));
     }
   }
 }

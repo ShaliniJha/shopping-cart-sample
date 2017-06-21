@@ -2,19 +2,7 @@ import React, {Component} from 'react';
 
 class CartComponent extends Component {
     constructor(props) {
-        console.log("Cart PRops", props);
         super(props);
-    }
-
-    shouldComponentUpdate(np, ns) {
-        console.log(ns);
-        console.log(np);
-        return true;
-    }
-
-    componentWillReceiveProps(newProps) {
-        console.log(newProps);
-
     }
 
 
@@ -37,7 +25,14 @@ class CartComponent extends Component {
         });
 
         return (
-            <div>{cartList.length ? cartList : `Nothing to see here pal!! `}</div>
+            <div>
+                {cartList.length ? <button className="btn btn-primary" onClick={() => {
+                            this.props.handleRemoveAll()
+                        }}>Remove All
+                        </button>:""
+                }
+                <div>{cartList.length ? cartList : `Nothing to see here pal!! `}</div>
+            </div>
         );
     }
 }

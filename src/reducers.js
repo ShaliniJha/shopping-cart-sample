@@ -24,17 +24,10 @@ const gwData = (state = [],action) => {
 
 const cartCount = (state = 0,action) => {
     switch(action.type){
-        case ADD_ITEM_TO_CART:
-            let cartCount = store.getState().cartCount;
-            return ++cartCount;
-        case REMOVE_ITEM_FROM_CART:
-            cartCount = store.getState().cartCount;
-            return --cartCount;
-        case REMOVE_ALL_ITEMS:
-            return 0;
-
+        case UPDATE_CART_DATA :
+            return action.cartData.length;
         default:
-        return state;
+            return state;
     }
 }
 

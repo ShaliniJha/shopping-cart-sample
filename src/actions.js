@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {BASEURL} from './constants';
 /**
  * Action Types
  */
@@ -11,18 +12,24 @@ import axios from 'axios';
  export const UPDATE_GW_DATA = "UPDATE_GW_DATA";
  export const UPDATE_CART_DATA = "UPDATE_CART_DATA";
 
-  export const removeItemFromCart = (itemName) => {
-      return {type: REMOVE_ITEM_FROM_CART, name:itemName};
+  export const removeItemFromCart = (dispatch, id) =>() => {
+    axios.delete(BASEURL+"cart/delete/"+id)
+    .then((response) => {
+      dispatch(fetchCartList(dispatch));
+    })    
   }
 
-  export const removeAllItems = () => {
-      return {type: REMOVE_ALL_ITEMS};
+
+  export const removeAllItems = (dispatch) => () => {
+      axios.delete(BASEURL+'cart/clear')
+      .then((response) => {
+            dispatch(fetchCartList(dispatch));
+      });
   }
 
   export const fetchProductList  = (dispatch) =>() => {
-    axios.get("http://localhost:3000/products")
+    axios.get(BASEURL+"products")
     .then((response) => {
-      console.log(response);
       dispatch(updateGWData(response.data.gwData));
     });
   }
@@ -33,17 +40,15 @@ import axios from 'axios';
   }
 
   export const addItemToCart = (dispatch, payload) =>() => {
-    axios.post("http://localhost:3000/cart/add", payload)
+    axios.post(BASEURL+"cart/add", payload)
     .then((response) => {
-      console.log(response);
       dispatch(fetchCartList(dispatch));
     })    
   }
 
   export const fetchCartList = (dispatch) => () =>{
-    axios.get("http://localhost:3000/cart")
+    axios.get(BASEURL+"cart")
     .then((response) => {
-      console.log(response);
       dispatch(updateCartData(response.data.cartData));
     });
   }

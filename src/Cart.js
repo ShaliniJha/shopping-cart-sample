@@ -5,6 +5,9 @@ class CartComponent extends Component {
         super(props);
     }
 
+    componentWillMount (){
+        this.props.fetchCartList();
+    }
 
     render() {
         let cartList = [];
@@ -15,7 +18,7 @@ class CartComponent extends Component {
                     <h4 className="card-title">NAME:{item.name}</h4>
                     <p className="card-text">{item.description}</p>
                     <button className="btn btn-primary" onClick={() => {
-                        this.props.handleRemoveCartItem(item.name)
+                        this.props.handleRemoveCartItem(item._id)
                     }}>Remove
                     </button>
                 </div>

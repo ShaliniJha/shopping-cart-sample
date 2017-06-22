@@ -48,9 +48,17 @@ router.post('/add', function(req, res, next) {
 /**
  * delete a product
  */
-router.post('/delete', function(req, res, next) {
-  var id = req.body.id;
+router.delete('/delete/:id', function(req, res, next) {
+  var id = req.params.id;
   cartData.findByIdAndRemove(id).exec()
+  res.json({"Message": "Removed Successfully!"})
+});
+
+/**
+ * delete a product
+ */
+router.delete('/clear', function(req, res, next) {
+  cartData.remove({}).exec()
   res.json({"Message": "Removed Successfully!"})
 });
 

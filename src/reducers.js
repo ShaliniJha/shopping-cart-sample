@@ -40,22 +40,6 @@ const cartCount = (state = 0,action) => {
 
 const cartData = (state = [], action) => {
     switch (action.type) {
-        case  ADD_ITEM_TO_CART:{
-            state.push(action.item);
-            return state;
-        }
-
-        case REMOVE_ITEM_FROM_CART:{
-            let newArray  = state.filter( (item) => {
-                return item.name !== action.name
-            });
-
-            return newArray
-        }
-
-        case REMOVE_ALL_ITEMS:
-            return [];
-        
         case UPDATE_CART_DATA :
             return action.cartData;
         default:

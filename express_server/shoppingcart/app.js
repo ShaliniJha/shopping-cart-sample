@@ -5,10 +5,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+// var graphql = require('graphql');
+// var graphqlHTTP  =  require('express-graphql');
+
 var index = require('./routes/index');
 var reviewers = require('./routes/reviewer');
 var products = require('./routes/product');
 var cart = require('./routes/cart');
+var twitter = require('./routes/twitter');
+
 
 var app = express();
 
@@ -26,6 +31,7 @@ app.use('/', index);
 app.use('/reviewers', reviewers);
 app.use('/products', products);
 app.use('/cart', cart);
+app.use('/twitter', twitter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -43,5 +49,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// app.use('/graphql', graphqlHTTP({
+//   schema: schema, 
+//   graphiql: true,
+//   pretty: true
+// }));
 
 module.exports = app;

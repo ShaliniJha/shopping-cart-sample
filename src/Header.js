@@ -3,6 +3,15 @@ import {Link} from 'react-router-dom';
 import './Header.css';
 
 class Header extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  componentWillMount (){
+        this.props.fetchCartCount();
+  }
+
   render() {
     return (
 

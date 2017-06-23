@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
-import Header from './Header'
+import Header from './Header';
+import {fetchCartList} from './actions';
 
 const mapStateToProps = (state) => {
     return {
@@ -7,4 +8,12 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        fetchCartCount : () =>{
+            dispatch(fetchCartList(dispatch))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

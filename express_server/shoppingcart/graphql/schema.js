@@ -1,5 +1,11 @@
-var { buildSchema } = require('graphql');
+const schema = `
+    type Query {
+        source: String
+    }
 
-var schema = buildSchema({
-    
-})
+    schema {
+        query: Query
+    }
+`;
+
+module.exports = schema;

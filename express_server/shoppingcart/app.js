@@ -5,8 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-// var graphql = require('graphql');
-// var graphqlHTTP  =  require('express-graphql');
+var graphql = require('graphql');
+var graphqlHTTP = require('express-graphql');
 
 var index = require('./routes/index');
 var reviewers = require('./routes/reviewer');
@@ -26,12 +26,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
 
 app.use('/', index);
 app.use('/reviewers', reviewers);
 app.use('/products', products);
 app.use('/cart', cart);
-app.use('/twitter', twitter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -50,10 +51,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// app.use('/graphql', graphqlHTTP({
-//   schema: schema, 
-//   graphiql: true,
-//   pretty: true
-// }));
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  graphiql: true
+}));
 
+app.listen(3000, () => console.log('Now browse to localhost:4000/graphql'));
 module.exports = app;
